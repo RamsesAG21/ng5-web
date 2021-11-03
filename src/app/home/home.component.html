@@ -5,7 +5,19 @@
   <div class="col">
     <p> Your bucket list ({{ itemCount }}) </p>
   </div>
+
+  <div class="col">
+    <form>
+      <input type="text" class="txt1" name="item" placeholder="user" [(ngModel)]= "user">
+      <input type="password" class="txt1" name="item" placeholder="pass" [(ngModel)]= "pass">
+     <input type="submit" class="btn1" value="login" (click)="loginUser()">
+    </form>
+
+    {{ token }}
+  </div>
+
 </div>
+
 <div class="container color-light" [@goals]="goals.length">
   <div class="col">
     <p class="sm"> Use this form below  to add a new bucklet list goal. What do you want to do with your life? </p>
@@ -17,7 +29,7 @@
   </div>
   <div class="col">
     <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
-      {{ goal }}
+      {{ goal.description }}
     </p>
   </div>
 </div>
